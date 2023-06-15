@@ -1,20 +1,20 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:602966352687:task-definition/elielTD:1",
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:602966352687:task-definition/FargateTaskDef:1",
     "containerDefinitions": [
         {
-            "name": "eliel",
-            "image": "public.ecr.aws/n2t1c1j4/eliel",
+            "name": "elielecr",
+            "image": "602966352687.dkr.ecr.eu-west-2.amazonaws.com/elielecr",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "eliel-80-tcp",
+                    "name": "elielecr-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 },
                 {
-                    "name": "eliel-3000-tcp",
+                    "name": "elielecr-3000-tcp",
                     "containerPort": 3000,
                     "hostPort": 3000,
                     "protocol": "tcp",
@@ -31,14 +31,14 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/elielTD",
+                    "awslogs-group": "/ecs/FargateTD",
                     "awslogs-region": "eu-west-2",
                     "awslogs-stream-prefix": "ecs"
                 }
             }
         }
     ],
-    "family": "elielTD",
+    "family": "FargateTaskDef",
     "taskRoleArn": "arn:aws:iam::602966352687:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::602966352687:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
@@ -53,10 +53,16 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -82,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-06-14T09:47:41.989Z",
-    "registeredBy": "arn:aws:iam::602966352687:root",
+    "registeredAt": "2023-06-15T09:24:11.293Z",
+    "registeredBy": "arn:aws:iam::602966352687:user/Eliel",
     "tags": []
 }
